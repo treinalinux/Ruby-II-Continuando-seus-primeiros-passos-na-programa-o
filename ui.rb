@@ -36,7 +36,20 @@ end
 
 
 def avisa_acertou_palavra
-  puts "Parabéns!!"
+        puts "\nParabéns, você ganhou!"
+        puts
+
+        puts "       ___________      "
+        puts "      '._==_==_=_.'     "
+        puts "      .-\\:      /-.    "
+        puts "     | (|:.     |) |    "
+        puts "      '-|:.     |-'     "
+        puts "        \\::.    /      "
+        puts "         '::. .'        "
+        puts "           ) (          "
+        puts "         _.' '._        "
+        puts "        '-------'       "
+        puts
 end
 
 
@@ -51,7 +64,9 @@ end
 
 
 def da_boas_vindas()
-  puts "Bem vindo ao jogo da forca..."
+  puts "/******************************/"
+  puts "/ Bem vindo ao jogo da forca  */"
+  puts "/******************************/\n"
   print "Digite seu nome: "
   nome = gets.strip
   puts "\n\n\n\n"
@@ -59,6 +74,40 @@ def da_boas_vindas()
   nome
 end
 
+
+def desenha_forca(erros)
+  cabeca = "   "
+  bracos = "   "
+  pernas = "   "
+  corpo  = " "
+  if erros >= 1
+    cabeca = "(_)"
+  end
+  if erros >= 2
+    bracos = " | "
+    corpo = " |"
+  end
+  if erros >= 3
+    bracos = "\\|/"
+  end
+  if erros >= 4
+    pernas = "/ \\"
+  end
+  if erros == 5
+  enforcado = "****ENFORCADO****" 
+  end
+  puts "  _______            \n"
+  puts " |/      |           \n"
+  puts " |      #{cabeca}    \n"
+  puts " |      #{bracos}    \n"
+  puts " |      #{corpo}     \n"
+  puts " |      #{pernas}    \n"
+  puts " |   #{enforcado}    \n"
+  puts " |                   \n"
+  puts " |                   \n"
+  puts "_|___                \n"
+  puts "\n\n"
+end
 
 def nao_quero_jogar?()
   print "Deseja jogar novamente? (S/N): "
@@ -69,6 +118,7 @@ end
 
 def cabecalho_de_tentativas(chutes, erros, mascara)
   puts "\n\n\n\n"
+  desenha_forca(erros)
   puts "Palavra secreta: #{mascara}"
   puts "Erros até agora: #{erros}"
   puts "Chutes até agora: #{chutes}"
